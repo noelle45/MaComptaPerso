@@ -1,0 +1,60 @@
+@font-face {font-family: "stardust"; src: url(fonts/Stardust.ttf); }
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+.titre-script
+{
+    font-family: 'Ubuntu', sans-serif;font-size:45px;text-transform: capitalize;
+}
+
+.stardust
+{font-family: 'stardust';font-size: 45px; }
+
+.card70
+{width: 70%;}
+
+.violet
+{
+    background-color: #801f54 ;
+}
+
+.blink {
+  color:red; 
+  animation: colorblink 2s infinite;
+}
+@keyframes colorblink { 
+0% { }
+50% { color:#fff; } 
+}
+
+body
+{background-image: url(img/budget.png);
+background-repeat: no-repeat;
+background-size: contain;
+background-position: center;
+text-align: center;
+}
+
+.bg-fond
+{
+    background-image: url(img/fond-budget.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    text-align: center;
+}
+
+.bg-white-diffu
+{background-color: rgba(255,255,255,0.9);}
+
+table
+{margin-left: auto;margin-right: auto;margin-top: 50px}
+
+.a-hover-rose:hover
+{
+    color: #801f54;
+}
+
+.a-hover-blanc:hover
+{
+    color: #fff;
+}
