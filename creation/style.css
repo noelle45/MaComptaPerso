@@ -17,9 +17,19 @@
     background-color: #801f54 ;
 }
 
+legend
+{
+    font-size: 17px;
+    text-align: center;
+}
+
+fieldset
+{border: 1px solid gray;padding: 10px;text-align: left;}
+
 .blink {
   color:red; 
   animation: colorblink 2s infinite;
+z-index: 1000;
 }
 @keyframes colorblink { 
 0% { }
@@ -38,7 +48,7 @@ text-align: center;
 {
     background-image: url(img/fond-budget.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     text-align: center;
 }

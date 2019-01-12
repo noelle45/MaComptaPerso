@@ -6,21 +6,40 @@ include('../includes/debut.php');
 
 if(isset($_SESSION['id']))
 {
-
-    ?><div class="row"> <?
+        $query=$db->prepare('SELECT id_createur, COUNT(id_banque)
+        AS nbrb
+        FROM banques 
+        WHERE id_createur=:id_createur');
+        $query->bindValue(':id_createur', $_SESSION['id'], PDO::PARAM_INT);
+        $query->execute();
+        $data = $query->fetch();
+        $nbrb = $data['nbrb'];
     
-    ?></div><?
-
-/*
-    $query = $db->prepare('SELECT * FROM banques WHERE id_createur = :id');
-    $query->bindValue(':id',$_SESSION['id'], PDO::PARAM_STR);
-    $query->execute();
-    $data=$query->fetch();
-
-    if($data['id_createur'] == $_SESSION['id'])
-    { */
-        include('../includes/banniere-connect.php');
-        ?>
+    if($data['nbrb']<1)
+    {
+            ?><div class="row"> <?
+            include('../includes/banniere-connect.php');
+            include('../includes/menu.php');
+            ?></div><?
+            
+            echo'<div class="row mx-auto h-50">';
+                echo'<div class="card ombre card50 p-5">';
+                    echo'<p class="mb-5">Commençons par créer une banque</p><br/>
+                    <a class="white2" href="../creation/crea-banque.php">
+                    <img class="mt-3" src="../creation/img/bank-icon.png" alt="icone crea banque" title="Nouvelle banque" width="150px"/>
+                    </a>';
+                echo'</div>';
+            echo'</div>';
+            
+        }
+        
+        else
+        {
+        ?><div class="row"> <?
+            include('../includes/banniere-connect.php');
+            include('../includes/menu.php');
+            ?></div>
+        
         <div style="margin-top:100px"></div>
         <div class="row w-100 justify-content-center mt-5 mb-5 pb-5 h-50">
             <div class="col ml-5">
@@ -68,7 +87,8 @@ if(isset($_SESSION['id']))
         </div>
 
         <?
-   }
+        }
+}
  /*  else
     {
         echo'<h2 class="violet pt-5 pb-5">

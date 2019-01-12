@@ -22,7 +22,7 @@
     &nbsp; &nbsp; | &nbsp; &nbsp; 
     
     <a class="white2" href="http://localhost/MaComptaPerso/view/saisir-ecriture.php"> 
-    Saisir une écriture
+    Saisie rapide
     </a>
     
     &nbsp; &nbsp; | &nbsp; &nbsp; 

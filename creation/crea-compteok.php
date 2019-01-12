@@ -26,16 +26,20 @@ if(isset($_SESSION['id']))
         $i++;
     }
     
-    echo'
-    <div class="card">';
+    
     if ($i==0)
    {
         ?><div class="row"> <?
         include('../includes/banniere-connect.php');
         include('../includes/menu.php');
         ?></div><?
+        
+        echo'
+        <div class="card">';
+        
         echo'
         <h2>Votre nouveau compte '.$nom_compte.' pour la banque '.$nom_banque.' a été crée avec succés !</h2>';
+       
         echo'
         </div>';
 
