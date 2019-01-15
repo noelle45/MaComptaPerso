@@ -68,7 +68,7 @@ if(isset($_SESSION['id']))
 
         echo'
         <h2 class="violet pt-5 pb-5 w-100">
-            <a class="white2" href="../view/saisir-ecriture.php?id='.$id_compte.'">
+            <a class="white2" href="crea-ecriture.php?id='.$id_compte.'">
             <img src="../creation/img/ecriture-icon.png" alt="icone crea compte" title="Saisir une écriture" width="80px"/>
             Saisir une écriture </a></h2>';
     }

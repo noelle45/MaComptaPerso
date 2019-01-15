@@ -12,9 +12,23 @@
 .card70
 {width: 70%;}
 
+.size18
+{font-size: 18px;}
+
+#overflow{height:600pt;overflow:auto;margin-top: 15px} 
+
+.size15
+{font-size: 15px;}
+
+.size12
+{font-size: 12px;}
+
+.size22
+{font-size: 20px;}
+
 .violet
 {
-    background-color: #801f54 ;
+    background-color: orange;
 }
 
 legend
@@ -33,31 +47,80 @@ z-index: 1000;
 }
 @keyframes colorblink { 
 0% { }
-50% { color:#fff; } 
+50% { color:dimgray; } 
 }
 
 body
-{background-image: url(img/budget.png);
-background-repeat: no-repeat;
-background-size: contain;
-background-position: center;
-text-align: center;
+{background-image: url(img/fond-budget.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-.bg-fond
+/*.bg-fond
 {
     background-image: url(img/fond-budget.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-    text-align: center;
+    background-attachment: fixed;
+}*/
+
+.bg-blue
+{
+    background-color:  #2980b9 ;
+}
+
+.bg-blue-diffu
+{
+  background-color: rgba(41,128,185,0.7);  
 }
 
 .bg-white-diffu
-{background-color: rgba(255,255,255,0.9);}
+{background-color: rgba(255,255,255,0.7);}
+
+.bg-orange-diffu
+{background-color: rgba(255,165,0,0.8);}
+
+.bg-green-diffu
+{background-color: rgba(75,174,25,0.8);}
+
+.bg-orange
+{background-color: orange;}
+
+.bg-red
+{
+    background-color:  #f10808;
+}
+
+.border-radius-zig
+{
+    border-radius: 40px 40px 40px 40px;
+}
+
+.border-radius-up
+{
+    border-radius: 40px 40px 10px 10px;
+}
+
+.border_radius-down
+{
+    border-radius: 10px 10px 10px 10px;
+}
+
+.orange
+{
+    color: orange;
+    background-color: #fff;
+    padding: 12px;
+}
+
+.bg-green
+{
+    background-color:  #43a115  ;
+}
 
 table
-{margin-left: auto;margin-right: auto;margin-top: 50px}
+{margin-left: auto;margin-right: auto;}
 
 .a-hover-rose:hover
 {

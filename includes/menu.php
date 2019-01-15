@@ -1,6 +1,8 @@
-<div class="row violet w-100 justify-content-center sticky-top mt-2 mb-3">
+<div class="row violet w-100 justify-content-center sticky-top mt-2 mb-0">
 <?
-    echo '
+    $monyth=date('m');
+    $year=date('Y');
+    echo '<strong>
     <p class="violet pt-3 pb-3 mt-3">  
         
     <a class="white2" href="http://localhost/MaComptaPerso/view/accueil-mes-comptes.php"> 
@@ -9,8 +11,8 @@
     
     &nbsp; &nbsp; | &nbsp; &nbsp;
     
-    <a class="white2" href="http://localhost/MaComptaPerso/view/budget-mensuel.php">
-    Mon budget mensuel 
+    <a class="white2" href="http://localhost/MaComptaPerso/view/budget-mensuel.php?month='.$monyth.'&year='.$year.'">
+    Mon budget en un clein d\'oeil 
     </a>
     
     &nbsp; &nbsp; | &nbsp; &nbsp;
@@ -43,7 +45,7 @@
     Deconnexion
     </a>
     
-    </p>';
+    </p></strong>';
 ?>
 </div>
 <?

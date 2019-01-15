@@ -6,7 +6,7 @@
     if(isset($_SESSION['id']))
     {
         echo'<div class="row w-100 violet mb-3" style="margin-top:-20px">
-        <h2 class="violet center"> Bienvenue '.$_SESSION['prenom'].'</h2>
+        <h2 class="violet center gray"><strong> Bienvenue '.$_SESSION['prenom'].'</strong></h2>
         </div>';
         
         

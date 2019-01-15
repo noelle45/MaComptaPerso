@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo'<div class="bg-fond">';
 include('../includes/connexion-bdd.php');
 include('../includes/debut.php');
 
@@ -67,8 +68,8 @@ if(isset($_SESSION['id']))
         <div class="card">';
     
         echo'
-        <h2>'.$montant.' € enregistré pour le compte '.$nom_compte2.' <br/> Banque : '.$nom_banque2.' !</h2>';
-    
+        <h2>'.$montant.' € enregistré pour le compte '.$nom_compte2.' <br/> Banque : '.$nom_banque2.' !</h2>
+        <p><a style="color:blue" href="../view/voir-compte.php?id='.$id_compte.'">Retour</a>';
         echo'
         </div>';
 
@@ -80,3 +81,4 @@ else
 }
 
 include('../includes/footer.php');
+echo'</div>';

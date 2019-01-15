@@ -24,11 +24,16 @@ $nom_banque = $data['nom_banque'];
             <div class="col">
             <form action="crea-compteok.php" method="post" >
                 <table class="bg-white-diffu">
-                    <?  echo'<p class="black center stardust pt-3 pb-3">'. $nom_banque .'</p>'; ?>
+                    
+                    <tr>
+                        <td class="text-align-center">
+                        <?  echo'<p class="black center stardust pt-3 pb-3">'. $nom_banque .'</p>'; ?>
+                        </td>
+                    </tr>
                     <tr>
                         <td class="text-align-center">
                             Nom du compte <br/>
-                            <i>Personnalisez-le afin de le retrouver plus facilement</i><br/>
+                            <i style="font-size:12px">Personnalisez-le afin de le retrouver plus facilement</i><br/>
                             <input type="text" name="nom_compte" id="type_compte" /><br/><br/>
                             Type de compte <br/>
                             <select name="type_compte">
@@ -39,7 +44,7 @@ $nom_banque = $data['nom_banque'];
                             <? echo'<input type="hidden" name="nom_banque" id="nom_banque" value="'.$nom_banque.'"/>';?>
                             <br/><input type="submit" value="Créer!" />
                         </td>
-                    <tr>
+                    </tr>
                 </table>
             </form>
         </div>

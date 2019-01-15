@@ -43,8 +43,8 @@ if(isset($_SESSION['id']))
         <div style="margin-top:100px"></div>
         <div class="row w-100 justify-content-center mt-5 mb-5 pb-5 h-50">
             <div class="col ml-5">
-                <div class="card ombre">
-                    <a href="budget-mensuel.php"><p class="black a-hover-rose">Mon budget mensuel</p>
+                <div class="card bg-white-diffu ombre">
+                    <a href="budget-mensuel.php"><p class="white2 a-hover-rose bg-orange p-1">Mon budget mensuel</p><br/>
                     <img style="margin-top:-10px" src="../creation/img/budget-icon.png" height="100px"></a>
                 </div>
             </div>
@@ -52,8 +52,8 @@ if(isset($_SESSION['id']))
         <br/>
         
             <div class="col">
-                <div class="card ombre">
-                    <a href="mes-comptes.php"><p class="black a-hover-rose">Mes comptes</p>
+                <div class="card bg-white-diffu ombre">
+                    <a href="mes-comptes.php"><p class="white2 a-hover-rose bg-orange p-1">Mes comptes</p><br/>
                     <img style="margin-top:-10px" src="../creation/img/bank-icon.png" height="100px"></a>
                 </div>
             </div> 
@@ -61,8 +61,8 @@ if(isset($_SESSION['id']))
         <br/>
         
             <div class="col">
-                <div class="card ombre">
-                    <a href="saisir-ecriture.php"><p class="black a-hover-rose">Saisie rapide d'écriture</p>
+                <div class="card bg-white-diffu ombre">
+                    <a href="saisir-ecriture.php"><p class="white2 a-hover-rose bg-orange p-1">Saisie rapide d'écriture</p><br/>
                     <img style="margin-top:-10px" src="../creation/img/ecriture-icon.png" height="100px"></a>
                 </div>
             </div> 
@@ -70,8 +70,8 @@ if(isset($_SESSION['id']))
             <br/>
         
             <div class="col">
-                <div class="card ombre">
-                    <a href="ma-synthese.php"><p class="black a-hover-rose">Mes échéances</p>
+                <div class="card bg-white-diffu ombre">
+                    <a href="ma-synthese.php"><p class="white2 a-hover-rose bg-orange p-1">Mes échéances</p><br/>
                     <img style="margin-top:-10px" src="../creation/img/eche-icon.png" height="100px"></a>
                 </div>
             </div> 
@@ -79,8 +79,8 @@ if(isset($_SESSION['id']))
         <br/>
         
             <div class="col mr-5">
-                <div class="card ombre">
-                    <a href="ma-synthese.php"><p class="black a-hover-rose">Ma synthèse</p>
+                <div class="card bg-white-diffu ombre">
+                    <a href="ma-synthese.php"><p class="white2 a-hover-rose bg-orange p-1">Ma synthèse</p><br/>
                     <img style="margin-top:-10px" src="../creation/img/graph.png" height="100px"></a>
                 </div>
             </div> 

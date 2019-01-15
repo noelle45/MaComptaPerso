@@ -62,6 +62,8 @@ if(isset($_SESSION['id']))
                                     <option value="Epargne"> Epargne </option>
                                     <option value="Loisir"> Loisir </option>
                                     <option value="Alimentation"> Alimentation </option>
+                                    <option value="Internet/ADSL"> Internet/ADSL </option>
+                                    <option value="Téléphone"> Téléphone </option>
                                     <option value="Animaux"> Animaux </option>
                                     <option value="Scolaire"> Scolaire </option>
                                     <option value="Vie quotidienne autre achat"> Vie quotidienne autre achat </option>
