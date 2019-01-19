@@ -18,6 +18,9 @@
 #overflow
 {height:600pt;overflow:auto;margin-top: 15px} 
 
+.float-right
+{float: right;}
+
 .btn-link
 {
     text-decoration: none;

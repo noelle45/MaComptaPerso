@@ -71,7 +71,7 @@ if(isset($_SESSION['id']))
         
             <div class="col">
                 <div class="card bg-white-diffu ombre">
-                    <a href="ma-synthese.php"><p class="white2 a-hover-rose bg-orange p-1">Mes échéances</p><br/>
+                    <a href="mes-echeances.php"><p class="white2 a-hover-rose bg-orange p-1">Mes échéances</p><br/>
                     <img style="margin-top:-10px" src="../creation/img/eche-icon.png" height="100px"></a>
                 </div>
             </div> 

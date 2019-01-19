@@ -763,9 +763,7 @@ echo'</div>
                         $query->execute();
                         $credit = $query->fetch();
                    
-//---- RESULTAT ------------------------------------------                        
-                        $solde_precedent = [];
-                
+//---- RESULTAT ------------------------------------------
                         $debitD = $debit[0];
                         $creditC = $credit[0];
                     
@@ -850,24 +848,46 @@ echo'</div>
                 
                     $solde = $credit[0] - (int) $debit[0];
 //---- SOLDES -------------------------------------------
-                        echo'
-                            <tr class="text-left bg-blue bold" style="border:1px solid white">
-                                <td colspan="2" class="text-align-center">
-                                    <p class="black p-3">Mon solde actuel &nbsp; &nbsp; '.number_format($solde, 2, ',', ' ').' €</p>
-                                </td>
-                            </tr>';
+//============================================================================================================
+//---- DEBITS --------------------------------------- 
+                        $querydebit=$db->prepare('SELECT sum(`montant`), date_ecriture
+                        FROM ecritures 
+                        WHERE debit_credit="D"
+                        AND pointer=1');
+                        $querydebit->execute();
+                        $debit2 = $querydebit->fetch();
+                        
+//---- CREDITS -------------------------------------------
                 
-                        echo'
-                        <tr class="text-left">
-                            <td>
-                                <p class="black">Mon solde réel
-                            </td>
-                            <td class="text-right">
-                                '.number_format($solde_actuel, 2, ',', ' ') .' €</p>
-                            </td>
-                        </tr>
-                        </table>';
-                    }
+                        $querycredit=$db->prepare('SELECT sum(`montant`), date_ecriture
+                        FROM ecritures
+                        WHERE debit_credit="C" 
+                        AND pointer=1');
+                        $querycredit->execute();
+                        $credit2 = $querycredit->fetch();
+                        
+                        $solde2 = $credit2[0] - (int) $debit2[0];
+                
+                echo'
+                <tr class="text-left bg-blue bold" style="border:1px solid white">
+                <td colspan="2" class="text-align-center">
+                <p class="black p-3">Mon solde actuel &nbsp; &nbsp; '.number_format($solde2, 2, ',', ' ').' €</p>
+                </td>
+                </tr>';
+                
+ //============================================================================================================               
+                $solde_actuel2 = $solde_actuel + $solde2;
+                echo'
+                <tr class="text-left">
+                <td>
+                <p class="black">Mon solde réel
+                </td>
+                <td class="text-right">
+                '.number_format($solde_actuel2, 2, ',', ' ') .' €</p>
+                </td>
+                </tr>
+                </table>';
+            }
 echo'</div>';
 //---------------------------------------------------------
                 

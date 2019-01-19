@@ -22,12 +22,10 @@ if(isset($_SESSION['id']))
     $id_compte = $_GET['id'];
 
     echo'
-    <p class="absolute float-left black" style="margin-top:px;margin-left:100px">
-        <a href="http://localhost/MaComptaPerso/creation/crea-ecriture.php?id='.$id_compte.'">
+    <p class="absolute float-left black" style="margin-top:15px;margin-left:100px">
+        <a class="black bold" href="http://localhost/MaComptaPerso/creation/crea-ecriture.php?id='.$id_compte.'">
             <img src="../creation/img/ecriture-icon.png" height="100px" alt="ma synthèse" title="Saisir une écriture"/>
-        </a>
-        Saisir une écriture
-    </p>';
+        <span class="black bold">Saisir une écriture</span></p></a>';
 
 
     ?><div class="row"> <?
@@ -99,7 +97,7 @@ if(isset($_SESSION['id']))
         echo'<div class="col-6">';
             echo'<div class="ml-3 mr-3 card ombre bg-white-diffu mt-3 mb-5">';
 
-                echo'<p class="typo-simple black"> Banque : '.$nom_banque.'<br/>Compte : '.$nom_compte.' / '.$type_compte.'</p>';
+                echo'<p class="typo-simple black"> <span class="stardust">'.$nom_banque.'</span><br/><span class="bold">'.$nom_compte.' || '.$type_compte.'</span></p>';
 
                 $solde_actuel = $solde_final - $total_non_pointer;
 
@@ -118,7 +116,7 @@ if(isset($_SESSION['id']))
                 <th>Objet</th>
                 <th class="text-align-center">Crédit</th>
                 <th class="text-align-center">Débit</th>
-                <th class="text-align-center">Pointer</th>
+                <th class="text-align-center">Action</th>
                 </tr>';        
                 while($data = $query->fetch())
                 {
@@ -148,13 +146,21 @@ if(isset($_SESSION['id']))
                             <form method="post" action="http://localhost/MaComptaPerso/view/pointer.php" enctype="multipart/form-data">
                             <input type="hidden" id="id_ecriture" name="id_ecriture" value="'.$data['id_ecriture'].'">
                             <input type="hidden" id="pointer" name="pointer" value="1">
-                            <input type="submit" value="pointer" />
+                            <input type="submit" value="Comptabiliser" />
+                            </form>';
+                            
+                            echo'
+                            <form method="post" action="http://localhost/MaComptaPerso/creation/delete-ecriture.php" enctype="multipart/form-data">
+                            <input type="hidden" id="id_ecriture" name="id_ecriture" value="'.$data['id_ecriture'].'">
+                            <input type="hidden" id="id_ecriture" name="id_ecriture" value="'.$data['id_compte'].'">
+                            <input type="submit" value="Supprimer" />
                             </form>';
                         }
                         elseif($data['pointer']==1)
                         {
                             echo'<img src="http://www.myspacefamily.fr/sections/budget/img/ok.png" alt="Pointer" title="pointer" height="40px">';
                         }
+                        
                         echo'</td>
                         </tr>';
                     }
@@ -275,10 +281,15 @@ if(isset($_SESSION['id']))
 <SCRIPT langage="Javascript">
   function ouvre(fichier) {
   ff=window.open(fichier,"popup",
-  "width=400,height=400,left=300,top=350,scrollbars=yes") }
+  "width=600,height=400,left=300,top=350,scrollbars=yes") }
   </SCRIPT>
 
 <div class="card bg-white-diffu mt-3 ombre">
+    <div class="absolute w-100" style="margin-top:-60px;margin-left:20px">
+        <div class="relative float-right">
+            <img src="../creation/img/punaiseb.png" alt="mes notes" title="Mes notes" width="140px"/>
+        </div>
+    </div>
     <p class="stardust text-align-center black">Mes Notes</p>
     
 <form action="../creation/note_post.php" method="post">
@@ -298,12 +309,12 @@ FROM notes WHERE id_createur=:id ORDER BY id_note DESC');
 $query->bindValue(':id',$_SESSION['id'],PDO::PARAM_INT);
 $query->execute();
 
-echo'<div class="bg-orange-diffu text-left pl-5">';
+echo'<div class="bg-orange-diffu text-left pl-5 border-radius-zig">';
 while($data = $query->fetch()) 
 {
     if($data['id_createur'] == $_SESSION['id'])
     {
-        echo '<p class="note mt-3">' . date('d-m-Y', strtotime($data['date_note'])) . ' - ' . $data['note_note'] . '<br />';
+        echo '<p class="mt-3 black size22">' .date('d-m-Y', strtotime($data['date_note'])) . ' &nbsp; &nbsp; <span class="note mt-3 size22">' . $data['note_note'] . '</span></p>';
     }
 }
 echo'</div>';  			
@@ -311,7 +322,7 @@ echo'</div>';
    
 <button type="submit" class="btn btn-primary mt-5" onClick="ouvre('<?php 
 echo '../creation/popup-notes.php'; ?>');return false">
-Trier/supprimer une note
+Trier / supprimer une note
 </button>
     
     <p class="class black italic">Après supression d'une note, rafraîchir la page en cliquant sur le bouton ci-dessous pour la prise en compte de cette action</p> 

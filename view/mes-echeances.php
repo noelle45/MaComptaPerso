@@ -47,7 +47,14 @@ $action = (isset($_GET['action']))?htmlspecialchars($_GET['action']):'consultcre
 switch($action)
 { 
  case "consultcreance":
-
+        
+echo'<div style="fixed:top;margin-top:-50px">
+<p class="black bold mt-5 p-3 bg-green-diffu">
+<a class="black" href="http://localhost/MaComptaPerso/view/mes-echeances.php?action=ajoutercreance"> 
+Créer un nouvel échéancier</p>
+</a>
+</div>';
+        
 $query=$db->prepare('SELECT * FROM creances WHERE id_createur=id_createur');
 $query->bindValue(':id_createur', $_SESSION['id'], PDO::PARAM_INT);
 $query->execute();
@@ -55,7 +62,7 @@ $query->execute();
 $headind = 0;
 $collapse = 0;
         
-echo'<div class="row justify-content-center bg-orange-diffu" style="height:200px;">';
+echo'<div class="row justify-content-center h-100">';
     while($creance=$query->fetch())
     {
         $headind ++;
@@ -73,7 +80,7 @@ echo'<div class="row justify-content-center bg-orange-diffu" style="height:200px
 
                         echo'<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'.$collapse.'" aria-expanded="true" aria-controls="collapse'.$collapse.'">';
 
-                            echo'<p class="black bold">'.$creance_nom.'</p>';
+                            echo'<p class="black bold">'.$creance_nom.'<br/>'.$nom_creancier.'</p>';
 
                         echo'</button>';
                     echo'</div>';
@@ -84,7 +91,7 @@ echo'<div class="row justify-content-center bg-orange-diffu" style="height:200px
             echo'<div class="card-body bg-orange-diffu">';
 
     //-----------------------------------------------------------------------
-                $query2=$db->prepare('SELECT * FROM echeances WHERE id_creance=:creance_id');
+                $query2=$db->prepare('SELECT * FROM echeances WHERE id_creance=:creance_id ORDER BY date_paiement DESC');
                 $query2->bindValue(':creance_id', $creance_id, PDO::PARAM_INT);
                 $query2->execute();
 
@@ -164,7 +171,8 @@ echo'<div class="row justify-content-center bg-orange-diffu" style="height:200px
                           echo'<td class="text-align-center bg-green-diffu bold size18 white2"><strong> '. $solde_final .' €</strong></td>
                         </tr>
                       </table>';
-
+                        
+                    echo'<p class="bg-blue white2 p-2 bold mt-5"><a class="white2 a-hover-blanc" href="../creation/crea-echeance.php?id='.$creance_id.'">Saisir une échéance qui ne soit pas comptabilisée en banque</a></p>';
 
     //------------------------------------------------------------------------
             echo'</div>'; 
@@ -172,8 +180,6 @@ echo'<div class="row justify-content-center bg-orange-diffu" style="height:200px
     echo'</div>';
     }
 echo'</div>';
-        
-echo'<div style="margin-top:300px"><p class="black bold mt-5 p-3 bg-green-diffu"><a class="black" href="http://localhost/MaComptaPerso/view/mes-echeances.php?action=ajoutercreance"> Créer un nouvel échéancier</p></a></div>';
 
 break;
 
@@ -297,12 +303,12 @@ case "creacreance":
 case "voircreance":
 $id = isset($_GET['id'])?(int) $_GET['id']:'';
 
-$query=$db->prepare('SELECT * FROM creances WHERE creance_id=:id');
+$query=$db->prepare('SELECT * FROM creances WHERE creance_id=:id ');
 $query->bindValue(':id', $id, PDO::PARAM_INT);
 $query->execute();
 $data = $query->fetch();
 
-$query=$db->prepare('SELECT * FROM creances WHERE creance_id=:id');
+$query=$db->prepare('SELECT * FROM creances WHERE creance_id=:id ');
 $query->bindValue(':id', $id, PDO::PARAM_INT);
 $query->execute();
 
@@ -361,7 +367,7 @@ Mode de réglement
  
 </th>
 </tr> <?
-$query=$db->prepare('SELECT * FROM echeances WHERE id_creance=:id ORDER BY date_paiement');
+$query=$db->prepare('SELECT * FROM echeances WHERE id_creance=:id ORDER BY date_paiement ASC');
 $query->bindValue(':id', $id, PDO::PARAM_INT);
 $query->execute();
 
@@ -419,7 +425,5 @@ include('../includes/banniere.php');
 echo'Vous n\'êtes pas connecté';
 }
 
-
-
-include('../includes/footer.php');
 echo'</div>';
+include('../includes/footer.php');
