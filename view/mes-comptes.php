@@ -107,6 +107,16 @@ echo'<div class="bg-fond">';
                                 echo'<p class="stardust">'. $bank['nom_banque'].'</p>';
                                 echo'<br/>';
                         
+                       
+                        $query5=$db->prepare('SELECT COUNT(`pointer`),`id_ecriture`,`id_banque` 
+                        FROM `ecritures` 
+                        WHERE `id_banque`=:id_banque AND `pointer`=0');
+                        $query5->bindValue(':id_banque', $id_banque, PDO::PARAM_INT);
+                        $query5->execute();
+                        $data5=$query5->fetch();
+                    		
+                        echo'<p class="black">Vous avez actuellement '.$data5[0].' écriture(s) non pointée(s)';
+                        
                     
  // ---- TOTAL BALANCE BANK ----------------------------------------------------------------- 
                         
@@ -118,14 +128,18 @@ echo'<div class="bg-fond">';
             $id_compte = $dataC1['id_compte'];
                         
             $queryDE=$db->prepare('SELECT SUM(montant) FROM ecritures
-            WHERE debit_credit="D" AND id_banque=:id_banque');
+            WHERE debit_credit="D" 
+            AND id_banque=:id_banque
+            AND pointer=1');
             $queryDE->bindValue(':id_banque', $id_banque, PDO::PARAM_INT);
             $queryDE->execute();
             $dataDE=$queryDE->fetch();
             $debit = $dataDE[0];
 
             $queryCR=$db->prepare('SELECT SUM(montant) FROM ecritures
-            WHERE debit_credit="C" AND id_banque=:id_banque');
+            WHERE debit_credit="C" 
+            AND id_banque=:id_banque
+            AND pointer=1');
             $queryCR->bindValue(':id_banque', $id_banque, PDO::PARAM_INT);
             $queryCR->execute();
             $dataCR=$queryCR->fetch();
@@ -134,7 +148,8 @@ echo'<div class="bg-fond">';
             $solde = ($credit - $debit);
             $solde_final = number_format($solde, 2, ',', ' ');
             
-             echo'<p class="typo-simple black" style="font-size:25px">Solde : <strong> '. $solde_final .' €</strong><span></p>';
+             echo'<p class="typo-simple black" style="font-size:25px">Solde au '.date('d-m-y').' <br/> <strong> '. $solde_final .' €</strong><span></p>
+             <p class="black">Sur la totalité de vos comptes '.$nom_banque;
                         
 // -------- TOTAL BALANCE CPTE ----------------------------------------------------------------------            
                         
@@ -169,18 +184,26 @@ echo'<div class="bg-fond">';
 //--------------- VIEW CPT PER BANK -------------------------------------------------------------------
                         
                         echo'<p class="violet mb-3">
-                        <a class="white2" href="voir-compte.php?id='.$cpt['id_compte'].'">';
+                        <a class="white2 bold size22" href="voir-compte.php?id='.$cpt['id_compte'].'">';
                         echo $cpt['nom_compte'];
                         echo'</a></p>';
- 
-                        echo $solde_final2;
+                        
+                        if($solde_final2<0)
+                        {
+                            echo'<p class="red bold size18">' .$solde_final2. ' €</p>';
+                        }
+                        else
+                        {
+                            echo'<p class="blue bold size18">' .$solde_final2. ' €</p>';
+                        }
                         echo'<br/>';
                         
             }
 //--------------------------- LINK CREATE NEW COMPT ----------------------------------------------------
             echo'
             <a href="http://localhost/MaComptaPerso/creation/crea-compte.php?id='.$id_banque.'">
-            <p class="mt-3">Créer un nouveau compte pour <br/>'.$nom_banque.'
+            <p class="mt-3 black bg-green-diffu border-radius-zig p-3">
+            Créer un nouveau compte <br/> pour votre banque <br/><span class="bold">'.$nom_banque.'</span>
             </p>
             </a>';
                         
@@ -195,6 +218,9 @@ echo'</div>';
         }
     }
 }
-
+else
+{
+    header("Location: http://localhost/MaComptaPerso/index.php");
+}
     include('../includes/footer.php');
 echo'</div>';

@@ -66,12 +66,27 @@ if(isset($_SESSION['id']))
     
      echo'
         <div class="card">';
-    
-        echo'
-        <h2>'.$objet.' <br/>pour un montant de :<br/> '.$montant.' € <br/>enregistré pour le compte ;<br/>'.$nom_compte.' <br/> Banque : '.$nom_banque.' !</h2>
-        <p><a style="color:blue" href="../view/voir-compte.php?id='.$id_compte.'">Retour</a>';
-        echo'
-        </div>';
+        if($_POST['categorie'] == 'Echeance')
+        {
+            echo'Nom de la créance à imputer';
+                $query4=$db->prepare('SELECT * FROM creances WHERE id_createur=:id_createur');
+                $query4->bindValue(':id_createur', $_SESSION['id'], PDO::PARAM_INT);
+                $query4->execute();
+                while($data4=$query->fetch())
+                {
+                    echo'<select id="categorie" name="categorie" >
+                        <option value="'.$data4['creance_nom'].'">'.$data4['creance_nom'].'</option>
+                        </select>';
+                }
+        }
+        else
+        {
+            echo'
+            <h2>'.$objet.' <br/>pour un montant de :<br/> '.$montant.' € <br/>enregistré pour le compte ;<br/>'.$nom_compte.' <br/> Banque : '.$nom_banque.' !</h2>
+            <p><a style="color:blue" href="../view/voir-compte.php?id='.$id_compte.'">Retour</a>';
+            echo'
+            </div>';
+        }
 
 }
 else

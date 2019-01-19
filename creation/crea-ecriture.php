@@ -40,6 +40,7 @@ if(isset($_SESSION['id']))
                         <input type="date" name="date_ecriture" id="date_ecriture" required/><br/><br/>
                         Catégorie <br/>
                         <select id="categorie" name="categorie" >
+                            <option value="Echeance">Echéance créance en cours</option>
                             <option value="Logement">Logement </option> 
                             <option value="Sante"> Sante </option> 
                             <option value="Transport"> Transport </option>
@@ -47,6 +48,7 @@ if(isset($_SESSION['id']))
                             <option value="Epargne"> Epargne </option>
                             <option value="Loisir"> Loisir </option>
                             <option value="Alimentation"> Alimentation </option>
+                            <option value="Téléphone"> Abonnement téléphonique </option>
                             <option value="Animaux"> Animaux </option>
                             <option value="Scolaire"> Scolaire </option>
                             <option value="Vie quotidienne autre achat"> Vie quotidienne autre achat </option>

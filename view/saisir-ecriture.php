@@ -42,7 +42,7 @@ if(isset($_SESSION['id']))
 
             <div class="row w-100 justify-content-center">
                 <div class="col">
-            <form action="../creation/crea-ecritureok.php" method="post" >
+            <form action="../creation/2.php" method="post" >
                 <div class=" card card50 p-2 ombre bg-white-diffu">
                     <p class="stardust">Saisie rapide</p>
             <table style="margin-top:-20px">
@@ -55,6 +55,7 @@ if(isset($_SESSION['id']))
                     <td>
                         Catégorie <br/>
                         <select id="categorie" name="categorie" >
+                                    <option value="Echeance">Echéance créance en cours</option>
                           			<option value="Logement">Logement </option> 
                                     <option value="Sante"> Sante </option> 
                                     <option value="Transport"> Transport </option>
@@ -99,13 +100,13 @@ if(isset($_SESSION['id']))
  
                         $query=$db->prepare('SELECT * FROM comptes');
                         $query->execute();
-                        echo'<fieldset><legend>Sur le compte</legend>';
+                        echo'<fieldset class="bg-orange-diffu border-radius-zig"><legend class="bg-orange p-3 white2 bold ombre border-radius-zig w-50 mt-5">Sur le compte</legend>';
                         
                         while($data = $query->fetch())
                         { 
                             if($data['id_createur']==$_SESSION['id'])
                             {
-                                echo'<input type="radio" name="id_compte" value="'.$data['id_compte'].'">';
+                                echo'<input type="radio" name="id_compte" value="'.$data['id_compte'].'"> ';
                                 echo $data['nom_compte'];
                                 echo'<br/>';
                             }

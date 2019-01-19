@@ -29,7 +29,7 @@
     
     &nbsp; &nbsp; | &nbsp; &nbsp; 
     
-    <a class="white2" href="http://localhost/MaComptaPerso/view/mes-echeances.php"> 
+    <a class="white2" href="http://localhost/MaComptaPerso/view/mes-echeances.php?action=consultcreance"> 
     Mes échéances
     </a>
     

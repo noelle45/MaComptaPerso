@@ -15,7 +15,33 @@
 .size18
 {font-size: 18px;}
 
-#overflow{height:600pt;overflow:auto;margin-top: 15px} 
+#overflow
+{height:600pt;overflow:auto;margin-top: 15px} 
+
+.btn-link
+{
+    text-decoration: none;
+}
+
+.italic
+{
+    font-style: italic;
+}
+.bg-none
+{
+    background-color: none;
+    background: none;
+}
+
+.btn-link:hover, h2:hover
+{
+    text-decoration: none;
+}
+
+.card, .card-header, .accordion, #heading
+{
+    background-color: none;
+}
 
 .size15
 {font-size: 15px;}
@@ -26,10 +52,19 @@
 .size22
 {font-size: 20px;}
 
+.size28
+{font-size: 28px;}
+
 .violet
 {
     background-color: orange;
 }
+
+.green
+{color: #43a115}
+
+.red
+{color: red}
 
 legend
 {
@@ -64,7 +99,10 @@ body
     background-size: cover;
     background-attachment: fixed;
 }*/
-
+.bold
+{
+    font-weight: bold;
+}
 .bg-blue
 {
     background-color:  #2980b9 ;
@@ -76,7 +114,7 @@ body
 }
 
 .bg-white-diffu
-{background-color: rgba(255,255,255,0.7);}
+{background-color: rgba(255,255,255,0.6);}
 
 .bg-orange-diffu
 {background-color: rgba(255,165,0,0.8);}
@@ -107,6 +145,10 @@ body
     border-radius: 10px 10px 10px 10px;
 }
 
+.blue
+{
+    color: blue;
+}
 .orange
 {
     color: orange;
