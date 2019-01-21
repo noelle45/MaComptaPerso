@@ -34,41 +34,7 @@ if(!isset($_SESSION['id']))
     }
 else
 {
-    include('includes/banniere-connect.php');
-    include('includes/menu.php');
-        ?>
-        <div class="row justify-content-center">
-            <div class="col">
-                <div class="card ombre card50">
-                    <a href="http://localhost/MaComptaPerso/view/budget-mensuel.php"><p class="black a-hover-rose">Mon budget mensuel</p></a>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class="row justify-content-center">
-            <div class="col">
-                <div class="card ombre card50">
-                    <a href="http://localhost/MaComptaPerso/view/mes-comptes.php"><p class="black a-hover-rose">Mes comptes</p></a>
-                </div>
-            </div> 
-        </div>
-        <br/>
-        <div class="row justify-content-center">
-            <div class="col">
-                <div class="card ombre card50">
-                    <a href="http://localhost/MaComptaPerso/view/saisir-ecriture.php"><p class="black a-hover-rose">Saisie rapide d'écriture</p></a>
-                </div>
-            </div> 
-        </div>
-        <br/>
-        <div class="row justify-content-center">
-            <div class="col">
-                <div class="card ombre card50">
-                    <a href="http://localhost/MaComptaPerso/view/ma-synthese.php"><p class="black a-hover-rose">Ma synthèse</p></a>
-                </div>
-            </div> 
-        </div>
-
-        <?
+    header('Location: view/accueil-mes-comptes.php');
+exit;
 }
 include('includes/footer.php');

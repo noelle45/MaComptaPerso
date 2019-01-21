@@ -3,6 +3,8 @@ session_start();
 echo'<div class="bg-fond">';
 include('../includes/connexion-bdd.php');
 include('../includes/debut.php');
+include('../includes/banniere-connect.php');
+include('../includes/menu.php');
 
 if(isset($_SESSION['id']))
 {
@@ -17,10 +19,10 @@ if(isset($_SESSION['id']))
     
     if($data['nbrb']<1)
     {
-            ?><div class="row"> <?
+            /*?><div class="row"> <?
             include('../includes/banniere-connect.php');
             include('../includes/menu.php');
-            ?></div><?
+            ?></div><?*/
             
             echo'<div class="row mx-auto h-50">';
                 echo'<div class="card ombre card50 p-5">';
@@ -35,11 +37,11 @@ if(isset($_SESSION['id']))
         
         else
         {
-        ?><div class="row"> <?
+        /*?><div class="row"> <?
             include('../includes/banniere-connect.php');
             include('../includes/menu.php');
-            ?></div>
-        
+            ?></div>*/
+        ?>
         <div style="margin-top:100px"></div>
         <div class="row w-100 justify-content-center mt-5 mb-5 pb-5 h-50">
             <div class="col ml-5">

@@ -1,9 +1,10 @@
-<div class="mt-5 bg-white-diffu">
-<footer class="pt-5">
+<div class="row w-100 mt-5 bg-white-diffu text-align-center">
+<footer class="col-12 pt-5">
 
     <p class="wow zoomIn black" data-wow-duration="1s"> imaginé et réalisé avec <img src="http://www.myspacefamily.fr/includes/index.png"> du header au footer <i class="fa fa-heart">
       </i> par <a style="color:blue" href="mailto:contact@noelle-monge.fr"> @noelle</a> <br/> <span style="font-size:18px">© 2019 </span> MaComptaPerso sur 
         <a href="http://www.myspacefamily.fr" target="_blank"> <span style="color:blue"> MySpacFamily </span></a> tous droits réservés </p>
+    <p><a href="http://localhost/MaComptaPerso/view/cgu.php" target="_blank">CGU</a></p>
 
   
   <a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=myspacefamily.fr','SiteLock','width=600,height=600,left=160,top=170');"><img title="SiteLock" src="https://shield.sitelock.com/shield/myspacefamily.fr" alt="Sécurité du site Web"></a>

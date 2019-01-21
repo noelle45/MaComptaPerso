@@ -55,27 +55,27 @@ if(isset($_SESSION['id']))
                     <td>
                         Catégorie <br/>
                         <select id="categorie" name="categorie" >
-                                    <option value="Echeance">Echéance créance en cours</option>
-                          			<option value="Logement">Logement </option> 
-                                    <option value="Sante"> Sante </option> 
-                                    <option value="Transport"> Transport </option>
-                                    <option value="Impots"> Impôts </option>
-                                    <option value="Epargne"> Epargne </option>
-                                    <option value="Loisir"> Loisir </option>
-                                    <option value="Alimentation"> Alimentation </option>
-                                    <option value="Internet/ADSL"> Internet/ADSL </option>
-                                    <option value="Téléphone"> Téléphone </option>
-                                    <option value="Animaux"> Animaux </option>
-                                    <option value="Scolaire"> Scolaire </option>
-                                    <option value="Vie quotidienne autre achat"> Vie quotidienne autre achat </option>
-                                    <option value="Vêtements"> Vêtements </option>
-                                    <option value="Frais fixe"> Frais fixe </option>
-                                  	<option value="Frais banquaire"> Frais banquaire </option>
-                                    <option value="Frais professionnels"> Frais professionnels </option>
-                                    <option value="Ressources"> Ressources </option>
-                                  	<option value="Cadeaux"> Cadeaux </option>
-                                  	<option value="Autre"> Autre </option>
-                                </select>
+                            <option value="Echeance">Echéance créance en cours</option>
+                            <option value="Logement">Logement </option> 
+                            <option value="Sante"> Sante </option> 
+                            <option value="Transport"> Transport </option>
+                            <option value="Impots"> Impôts </option>
+                            <option value="Epargne"> Epargne </option>
+                            <option value="Loisir"> Loisir </option>
+                            <option value="Alimentation"> Alimentation </option>
+                            <option value="Telephone_mobile"> Téléphone/Mobile/Fixe </option>
+                            <option value="ADSL_cable"> ADSL/Câble/Fibre </option>
+                            <option value="Animaux"> Animaux </option>
+                            <option value="Scolaire"> Scolaire </option>
+                            <option value="Vie_quotidienne_autre_achat"> Vie quotidienne autre achat </option>
+                            <option value="Vetements"> Vêtements </option>
+                            <option value="Frais_fixe"> Frais fixe </option>
+                            <option value="Frais_banquaire"> Frais banquaire </option>
+                            <option value="Frais_professionnels"> Frais professionnels </option>
+                            <option value="Ressources"> Ressources </option>
+                            <option value="Cadeaux"> Cadeaux </option>
+                            <option value="Autre"> Autre </option>
+                        </select>
                     </td>
                     <td>
                         Objet <br/>

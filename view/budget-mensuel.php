@@ -4,6 +4,7 @@ echo'<div class="bg-fond">';
 include('../includes/connexion-bdd.php');
 include('../includes/debut.php');
 
+
 if(isset($_SESSION['id']))
 {
     $query=$db->prepare('SELECT id_createur, COUNT(id_banque)
@@ -40,13 +41,17 @@ if(isset($_SESSION['id']))
         include('../includes/menu.php');
         ?></div><?
 
+        $action = (isset($_GET['action']))?htmlspecialchars($_GET['action']):'view';
+        $month = (isset($_GET['month']))?htmlspecialchars($_GET['month']):'';
+        $year = (isset($_GET['year']))?htmlspecialchars($_GET['year']):'';
+        
+        
+        
         $table = ['01'=>'Janvier','02'=>'Février', '03'=>'Mars', '04'=>'Avril', '05'=>'Mai', '06'=>'Juin', '07'=>'Juillet', '08'=>'Août', '09'=>'Septembre', '10'=>'Octobre', '11'=>'Novembre', '12'=>'Décembre'];
         
         $table2 = ['01'=>'1','02'=>'2', '03'=>'3', '04'=>'4', '05'=>'5', '06'=>'6', '07'=>'7', '08'=>'8', '09'=>'9', '10'=>'10', '11'=>'11', '12'=>'12'];
 
-        $action = (isset($_GET['action']))?htmlspecialchars($_GET['action']):'view';
-        $month = (isset($_GET['month']))?htmlspecialchars($_GET['month']):'';
-        $year = (isset($_GET['year']))?htmlspecialchars($_GET['year']):'';
+        
 
         switch($action)
         {
@@ -87,9 +92,25 @@ if(isset($_SESSION['id']))
             </form>
             <?
 
+        echo'<div class="row w-100 mx-auto mb-3">
+        <div class="col-12 text-align-center size18 gray">
+        <a href="budget-mensuel.php?month=01&year='.date('Y').'">Janvier</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=02&year='.date('Y').'">Février</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=03&year='.date('Y').'">Mars</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=04&year='.date('Y').'">Avril</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=05&year='.date('Y').'">Mai</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=06&year='.date('Y').'">Juin</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=07&year='.date('Y').'">Juillet</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=08&year='.date('Y').'">Aout</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=09&year='.date('Y').'">Septembre</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=10&year='.date('Y').'">Octobre</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=11&year='.date('Y').'">Novembre</a> &nbsp; | &nbsp; 
+        <a href="budget-mensuel.php?month=12&year='.date('Y').'">Décembre</a>
+        </div></div>';
+                
             if(!empty($_GET['month']))
             {
-                echo'<p class="typo-simple black size18 mb-3">'.$table[$month].' '.$year.'</p>';
+                echo'<p class="typo_simple black size28 mb-5 mt-5">'.$table[$month].' '.$year.'</p>';
 
                 //--- AFFICHAGE DES CPTES ECRITURES DE MES COMPTES --------------------
                 
@@ -247,6 +268,13 @@ Voir mes comptes</p></strong></a>
                             echo'</table>';
 echo'</div>';
 echo'</div>';
+                
+                //---------------- GRAPH -----------------------------
+                
+                
+                
+                //----------------------------------------------------
+                
 echo'</div>';
                 //-fin accordion
                            if($_GET['year']==date('Y') && $_GET['month']==date('m')) 
@@ -650,7 +678,7 @@ echo'</div>
                         echo'
                         <tr class="text-left">
                             <td>
-                                <p class="black">Mes Revenus : 
+                                <p class="black">Tous Revenus cumulés : 
                             </td>
                             
                             <td class="text-right">
@@ -828,7 +856,7 @@ echo'</div>
                             <table class="w-100">
                             <tr class="text-left">
                                 <td>
-                                    <p class="black">Mes Ressources
+                                    <p class="black"><span class="bold">Mes Ressources</span> de '.$table[$month].' '.$year.'
                                 </td>
                                 <td class="text-right">
                                 
@@ -839,7 +867,7 @@ echo'</div>
                         echo'
                             <tr class="text-left">
                                 <td>
-                                    <p class="black">Mes dépenses
+                                    <p class="black"><span class="bold">Mes dépenses </span> de '.$table[$month].' '.$year.'
                                 </td>
                                 <td class="text-right">
                                    '. number_format($debit_actuel, 2, ',', ' ') .' €</p>
@@ -877,7 +905,7 @@ echo'</div>
                 
  //============================================================================================================               
                 $solde_actuel2 = $solde_actuel + $solde2;
-                echo'
+                /*echo'
                 <tr class="text-left">
                 <td>
                 <p class="black">Mon solde réel
@@ -885,8 +913,8 @@ echo'</div>
                 <td class="text-right">
                 '.number_format($solde_actuel2, 2, ',', ' ') .' €</p>
                 </td>
-                </tr>
-                </table>';
+                </tr>*/
+                echo'</table>';
             }
 echo'</div>';
 //---------------------------------------------------------
@@ -971,14 +999,14 @@ echo'</div>';
                 <option value="Epargne"> Epargne </option>
                 <option value="Loisir"> Loisir </option>
                 <option value="Alimentation"> Alimentation </option>
-                <option value="Telephone mobile"> Téléphone/Mobile/Fixe </option>
+                <option value="Telephone_mobile"> Téléphone/Mobile/Fixe </option>
                 <option value="Animaux"> Animaux </option>
                 <option value="Scolaire"> Scolaire </option>
-                <option value="Vie quotidienne autre achat"> Vie quotidienne autre achat </option>
+                <option value="Vie_quotidienne_autre_achat"> Vie quotidienne autre achat </option>
                 <option value="Vêtements"> Vêtements </option>
-                <option value="Frais fixe"> Frais fixe </option>
-                <option value="Frais banquaire"> Frais banquaire </option>
-                <option value="Frais professionnels"> Frais professionnels </option>
+                <option value="Frais_fixe"> Frais fixe </option>
+                <option value="Frais_banquaire"> Frais banquaire </option>
+                <option value="Frais_professionnels"> Frais professionnels </option>
                 <option value="Ressources"> Ressources </option>
                 <option value="Cadeaux"> Cadeaux </option>
                 <option value="Autre"> Autre </option>

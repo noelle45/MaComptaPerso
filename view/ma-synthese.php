@@ -34,12 +34,31 @@ if(isset($_SESSION['id']))
         }
         
         else
-        {
-            ?><div class="row"> <?
-            include('../includes/banniere-connect.php');
-            include('../includes/menu.php');
-            ?></div><?
-            
+        {   
+            echo'<div class="row">';
+                include('../includes/banniere-connect.php');
+                include('../includes/menu.php');
+            echo'</div>';
+//------------------------------------------------------------------
+            echo'<div class="row w-100 h-100 p-5 mt-5">';
+
+                 echo'<div class="col-6">';
+                    echo'
+                    <p class="text-align-center stardust ombre bg-green-diffu white2">Graphique de mon prévisionnel</p>';
+                    echo'<div class="card ombre bg-white">';
+                        include('../creation/graph-budget.php');
+                    echo'</div>'; // card
+                 echo'</div>'; // col
+
+                 echo'<div class="col-6">';
+                    echo'
+                    <p class="text-align-center stardust ombre bg-green-diffu white2">Graphique de mes dépenses réelles</p>';
+                    echo'<div class="card ombre bg-white">';
+                        include('../creation/graph-perso2.php');
+                    echo'</div>'; // card
+                echo'</div>'; // col
+
+            echo'</div>'; // row
         }
 }
 
@@ -50,6 +69,4 @@ else
 }
 
 
-
 include('../includes/footer.php');
-echo'</div>';

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
@@ -27,6 +28,8 @@
 
 <link rel="stylesheet" media="screen" type="text/css" title="Design" href="http://myspacefamily.com/css/constant.css" />
 <link rel="stylesheet" media="screen" type="text/css" title="Design" href="http://localhost/MaComptaPerso/creation/style.css" />
+
+
 
 <?php
 //Attribution des variables de session
