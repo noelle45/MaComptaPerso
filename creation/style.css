@@ -1,0 +1,177 @@
+@font-face {font-family: "stardust"; src: url(fonts/Stardust.ttf); }
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+.titre-script
+{
+    font-family: 'Ubuntu', sans-serif;font-size:45px;text-transform: capitalize;
+}
+
+.stardust
+{font-family: 'stardust';font-size: 45px; }
+
+.card70
+{width: 70%;}
+
+.size18
+{font-size: 18px;}
+
+#overflow
+{height:600pt;overflow:auto;margin-top: 15px} 
+
+.float-right
+{float: right;}
+
+.btn-link
+{
+    text-decoration: none;
+}
+
+.italic
+{
+    font-style: italic;
+}
+.bg-none
+{
+    background-color: transparent;
+}
+
+.btn-link:hover, h2:hover
+{
+    text-decoration: none;
+}
+
+.card, .card-header, .accordion, #heading
+{
+    background-color: none;
+}
+
+.size15
+{font-size: 15px;}
+
+.size12
+{font-size: 12px;}
+
+.size22
+{font-size: 20px;}
+
+.size28
+{font-size: 28px;}
+
+.violet
+{
+    background-color: orange;
+}
+
+.green
+{color: #43a115}
+
+.red
+{color: red}
+
+legend
+{
+    font-size: 17px;
+    text-align: center;
+}
+
+fieldset
+{border: 1px solid gray;padding: 10px;text-align: left;}
+
+.blink {
+  color:red; 
+  animation: colorblink 2s infinite;
+z-index: 1000;
+}
+@keyframes colorblink { 
+0% { }
+50% { color:dimgray; } 
+}
+
+body
+{background-image: url(img/fond-budget.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*.bg-fond
+{
+    background-image: url(img/fond-budget.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}*/
+.bold
+{
+    font-weight: bold;
+}
+.bg-blue
+{
+    background-color:  #2980b9 ;
+}
+
+.bg-blue-diffu
+{
+  background-color: rgba(41,128,185,0.7);  
+}
+
+.bg-white-diffu
+{background-color: rgba(255,255,255,0.8);}
+
+.bg-orange-diffu
+{background-color: rgba(255,165,0,0.8);}
+
+.bg-green-diffu
+{background-color: rgba(75,174,25,0.8);}
+
+.bg-orange
+{background-color: orange;}
+
+.bg-red
+{
+    background-color:  #f10808;
+}
+
+.border-radius-zig
+{
+    border-radius: 40px 40px 40px 40px;
+}
+
+.border-radius-up
+{
+    border-radius: 40px 40px 10px 10px;
+}
+
+.border_radius-down
+{
+    border-radius: 10px 10px 10px 10px;
+}
+
+.blue
+{
+    color: blue;
+}
+.orange
+{
+    color: orange;
+    background-color: #fff;
+    padding: 12px;
+}
+
+.bg-green
+{
+    background-color:  #43a115  ;
+}
+
+table
+{margin-left: auto;margin-right: auto;}
+
+.a-hover-rose:hover
+{
+    color: #801f54;
+}
+
+.a-hover-blanc:hover
+{
+    color: #fff;
+}
